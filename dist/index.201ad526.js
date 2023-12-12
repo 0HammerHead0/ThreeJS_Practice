@@ -576,6 +576,7 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 
 },{}],"11CQn":[function(require,module,exports) {
 var _three = require("three");
+var _appCss = require("../style/app.css");
 const scene = new _three.Scene();
 const camera = new _three.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 const renderer = new _three.WebGLRenderer();
@@ -596,7 +597,7 @@ function animate() {
 }
 animate();
 
-},{"three":"ktPTu"}],"ktPTu":[function(require,module,exports) {
+},{"three":"ktPTu","../style/app.css":"dMNRy"}],"ktPTu":[function(require,module,exports) {
 /**
  * @license
  * Copyright 2010-2023 Three.js Authors
@@ -31456,6 +31457,6 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["hMxnt","11CQn"], "11CQn", "parcelRequire6dd9")
+},{}],"dMNRy":[function() {},{}]},["hMxnt","11CQn"], "11CQn", "parcelRequire6dd9")
 
 //# sourceMappingURL=index.201ad526.js.map
