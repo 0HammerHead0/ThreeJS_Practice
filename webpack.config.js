@@ -22,7 +22,16 @@ module.exports = {
   ],
   module: {
     rules: [
-      // Define your loaders here (for transpiling, handling CSS, etc.)
+      {
+        test: /\.js$/, // Match JavaScript files
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'], // Basic preset for compatibility
+          },
+        },
+      },
     ],
-  },
+  },  
 };
