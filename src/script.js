@@ -4,7 +4,8 @@ import './style.css';
 
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
+import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
 const sizes = {
     width: window.innerWidth,
     height: window.innerHeight 
@@ -24,20 +25,23 @@ const cube = new THREE.Mesh( geometry, material );
 // scene.add( cube );
 
 camera.position.z = 5;
-var gltfLoader = new GLTFLoader();
-gltfLoader.load(
-    '../static/models/gopro-gltf/scene.gltf',
-    function ( gltf ) {
-        scene.add( gltf.scene );
+const loader = new GLTFLoader();
+const modelPath = './models/Duck/glTF/Duck.gltf ';
+loader.load(
+    modelPath,
+    (gltf) => {
+        const model = gltf.scene;
+        model.position.set( 1, 1, 0 );
+        model.scale.set( 0.01, 0.01, 0.01 );
+        scene.add( model );
     },
-    function ( xhr ) {
-        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+    (xhr) => {
+        console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
     },
-    function(error) {
-        console.log("ERROR")
-        console.log(error);
+    (error) => {
+        console.error('Error loading GLTF:', error);
     }
-)
+);
 
 function animate() {
 	requestAnimationFrame( animate );

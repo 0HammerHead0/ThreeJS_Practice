@@ -4,16 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack serve --mode development --open"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "gsap": "^3.12.3",
+    "run": "^1.4.0",
     "three": "^0.159.0"
   },
   "devDependencies": {
+    "buffer": "^6.0.3",
+    "html-webpack-plugin": "^5.5.4",
     "parcel": "^2.10.3",
-    "vite": "^5.0.8"
+    "vite": "^5.0.8",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   }
 }
