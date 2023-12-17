@@ -9,7 +9,8 @@ const sizes = {
   width: container.clientWidth * 1,
   height: container.clientHeight * 1
 };
-
+console.log("HELOoooooooooooooooooooooooooo")
+console.log(THREE.REVISION); 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 1000);
 const canvas = document.querySelector('.webgl');
@@ -28,7 +29,8 @@ const materials = [
 ];
 const cube = new THREE.Mesh(geometry, materials);
 const axesHelper = new THREE.AxesHelper(); // 'size' determines the length of the axes lines
-scene.add(cube,axesHelper);
+// scene.add(cube);
+scene.add(axesHelper);
 
 camera.position.z = 2;
 
@@ -121,12 +123,21 @@ scene.add(backLight);
 
 const gltfLoader = new GLTFLoader();
 gltfLoader.load(
-  './models/Duck/glTF-Binary/Duck.glb',
+  'models/gltf/scene.gltf',
   (gltf) =>
-  {
-    while (gltf.scene.children.length)
     {
-      scene.add(gltf.scene.children[0]);
+        while (gltf.scene.children.length)
+        {
+        scene.add(gltf.scene.children[0]);
+        }
+    },
+    (progress) =>
+    {
+        console.log('progress', progress);
+    },
+    (error) =>
+    {
+        console.log('error', error);
     }
-  }
+
 );

@@ -19,12 +19,15 @@ const config = {
         filename: 'bundle.js',
     },
     devServer: {
+        static: {
+            directory: path.join(__dirname, 'public'), // Replace 'public' with your directory
+          },
+        port: 8080,
         open: true,
-        host: 'localhost',
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'index.html',
+            template: 'public/index.html',
         }),
 
         new MiniCssExtractPlugin(),
@@ -47,7 +50,10 @@ const config = {
                 test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
                 type: 'asset',
             },
-
+            {
+                test: /\.(glb|gltf)$/,
+                use: 'file-loader',
+            },
             // Add your rules for custom modules here
             // Learn more about loaders from https://webpack.js.org/loaders/
         ],

@@ -21,9 +21,16 @@ npm i --save three
 npm i --save parcel
 npm install html-webpack-plugin --save-dev
 npm install webpack-dev-server --save-dev
+npm install webpack webpack-cli babel-loader @babel/core @babel/preset-env style-loader css-loader file-loader --save-dev
+
 webpack-dev-server --version
 webpack-dev-server --version
 npx webpack init
+
+
+
+
+
 In package.json, add the following script
 "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
