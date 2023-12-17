@@ -16,6 +16,7 @@ const config = {
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
+        filename: 'bundle.js',
     },
     devServer: {
         open: true,
@@ -31,6 +32,7 @@ const config = {
         // Add your plugins here
         // Learn more about plugins from https://webpack.js.org/configuration/plugins/
     ],
+    mode: isProduction ? 'production' : 'development',
     module: {
         rules: [
             {
